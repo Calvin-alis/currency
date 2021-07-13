@@ -1,0 +1,9 @@
+language: python
+
+python:
+  - '3'
+install:
+  - pip install -r requirments.txt
+script:
+  - flake8 ./app
+
