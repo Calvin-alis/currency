@@ -9,7 +9,7 @@ class Rate(models.Model):
     source = models.CharField(max_length=32)
     type  = models.CharField(max_length=3)
 
-
+# TODO - усовершествовать типы
 # id устанавливать нам не нужно django сам его установит
 class ContactUs(models.Model):
     #  установлин автоматический валидатор
