@@ -5,12 +5,24 @@ from django.http import HttpRequest
 
 # Создание пользователя в бд для таблицв ContactUs
 class ContactUs:
+    # Не сделал деструктор, не получается подключиться в бд
 
-    # Создаем инициализатор с тремя полями нашей модели
-    def __index__(self, email, subj, mess):
+    # Создаем инициализатор с  3 полями нашей модели и адресс бд
+    def __init__(self, email, subj, mess, adress):
         self.email = email
         self.subj = subj
         self.mess = mess
+        self.adress = adress
+
+    # Пример из урока
+    def get_full_name(self):
+        return f'{self.email} {self.subj} {self.mess}'
+
+    # Возможность в логике переключать выполнение
+    def connect_db(self):
+        con = sqlite3.connect(self.adress)
+        con.commit()
+        con.close()
 
     # Создание вручную CRUD - операция
     # Функция  чтение пользователя
